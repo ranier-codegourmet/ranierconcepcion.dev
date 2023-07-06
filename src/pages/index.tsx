@@ -1,118 +1,93 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import BGAccent from '@/components/BGAccent';
+import BigTextAccent from '@/components/BigTextAccent';
+import Button from '@/components/Button';
+import OvalAvatar from '@/components/OvalAvatar';
+import ScollForMore from '@/components/ScrollForMore';
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className={`flex min-h-screen flex-col  `}>
+      <section id="home" className="hero-section min-h-screen flex justify-center items-center relative">
+        <div className="z-10 container">
+          <div className="row items-center">
+            <div className="w-full md:w-1/2 ">
+              <h1 className="md:text-4xl lg:text-6xl leading-[1.2em]">
+                Expert in developing and designing websites that drive business growth
+              </h1>
+              <p className="mb-10">
+                {`I'm Jose, a fullstack developer with 7 years of experience. I excel in frontend and backend development, especially with ReactJS and Shopify. I love using my skills to help clients build successful websites.`}
+              </p>
+              <Button>{`Let's Talk`}</Button>
+            </div>
+            <div className="w-full md:w-1/2 ">
+              <div className="avatar-container relative">
+                <ScollForMore />
+                <OvalAvatar src="/headshot.jpg" alt="Jose Adrian Buctuanon" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <BGAccent className="z-1 top-[10vh] left-[-30vw] text-[100vw] w-[1em] h-[1em]" />
+      </section>
+      <section id="about" className="work-section min-h-screen flex justify-center items-center flex-col">
+        <BigTextAccent text="About" />
+        <div className="container">
+          <div className="row justify-center py-20 min-h-screen items-center">
+            <div className="w-full md:w-1/3 ">
+              <h3 className="mb-10 text-4xl leading-[1.5em]">
+                {`" I use a combination of strategic thinking and creative problem-solving to create standout projects "`}
+              </h3>
+            </div>
+            <div className="w-full md:w-2/3 ">
+              <div className="box w-full relative w-full max-w-[600px] mx-auto h-[300px] bg-slate-500">
+                <div
+                  className="
+                  box-big
+                  absolute
+                  top-[50%]
+                  left-[50%]
+                  translate-x-[-50%]
+                  translate-y-[-50%]
+                  block
+                  w-full
+                  h-full
+                  scale-[1.5]
+                "
+                >
+                  <Image src={`/3d-image.png`} alt="3d image" fill className="object-contain" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row justify-center py-20 min-h-screen items-center">
+            <div className="w-full md:w-2/3 ">
+              <OvalAvatar src="/talk-exposure-edited.jpg" alt="Jose Adrian Buctuanon" />
+            </div>
+            <div className="w-full md:w-1/3 ">
+              <h2 className="text-4xl mb-10">Get to know me</h2>
+              <p className="mb-10">
+                {`I am a front-end developer based in the Philippines with expertise in Shopify and React. In my role, I use a combination of strategic thinking and creative problem-solving to create standout projects for a range of clients, including both large organizations and start-ups.`}
+              </p>
+              <p>
+                {`In addition to my full-time work as a developer, I also run my own part-time business focused on creating commercial solutions for medium to large businesses. Through this venture, I have had the opportunity to lead and participate in a variety of projects, from e-commerce websites to business dashboards. My diverse experience has allowed me to develop a wide range of skills and I am always looking for new challenges to tackle.`}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="work" className="work-section min-h-screen flex justify-center items-center flex-col">
+        <BigTextAccent text="Works" />
+        <div className="container">
+          <div className="row justify-center py-20 min-h-[60vh] items-center">
+            <div className="w-full md:w-1/3 ">
+              <h3 className="mb-10 text-4xl">
+                {`I use a combination of strategic thinking and creative problem-solving to create standout projects`}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-  )
+  );
 }
