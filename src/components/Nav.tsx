@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from './Button';
 import { twMerge } from 'tailwind-merge';
 import { MENU } from '@/constants/menus_and_socials';
+import ButtonLink from './ButtonLink';
 
 type NavProps = {
   className?: string;
@@ -80,7 +81,7 @@ const Nav: FC<NavProps> = (props) => {
             </ul>
           </div>
           <div className="hire-me">
-            <Button>Hire Me !</Button>
+            <ButtonLink href="mailto:jose@codegourmet.io">Hire Me !</ButtonLink>
           </div>
         </div>
       </div>

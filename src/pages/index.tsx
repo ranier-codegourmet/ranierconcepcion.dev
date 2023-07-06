@@ -21,7 +21,7 @@ export default function Home() {
               <p className="mb-10">
                 {`I'm Jose, a fullstack developer with 7 years of experience. I excel in frontend and backend development, especially with ReactJS and Shopify. I love using my skills to help clients build successful websites.`}
               </p>
-              <Button>{`Let's Talk`}</Button>
+              <ButtonLink href="#contact">{`Let's Talk`}</ButtonLink>
             </div>
             <div className="w-full md:w-1/2 ">
               <div className="avatar-container relative">
