@@ -10,7 +10,7 @@ const OvalAvatar: FC<OvalAvatarProps> = (props) => {
   return (
     <div
       className={twMerge(
-        'avatar w-full mx-auto max-w-[500px] bg-neutral-400 h-[800px] block rounded-full overflow-hidden relative',
+        'avatar w-full mx-auto  bg-neutral-400 max-w-[250px] h-[400px] md:max-w-[500px] md:h-[800px] block rounded-full overflow-hidden relative',
         className,
       )}
     >

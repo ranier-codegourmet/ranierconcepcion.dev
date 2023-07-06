@@ -10,12 +10,12 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className={`flex min-h-screen flex-col  `}>
+    <main className={`flex min-h-screen flex-col  overflow-hidden px-4 pt-[100px] md:px-0`}>
       <section id="home" className="hero-section min-h-screen flex justify-center items-center relative">
         <div className="z-10 container">
           <div className="row items-center">
-            <div className="w-full md:w-1/2 ">
-              <h1 className="md:text-4xl lg:text-6xl leading-[1.2em]">
+            <div className="w-full md:w-1/2 order-2 md:order-1">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl leading-[1.2em]">
                 Expert in developing and designing websites that drive business growth
               </h1>
               <p className="mb-10">
@@ -23,7 +23,7 @@ export default function Home() {
               </p>
               <ButtonLink href="#contact">{`Let's Talk`}</ButtonLink>
             </div>
-            <div className="w-full md:w-1/2 ">
+            <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="avatar-container relative">
                 <ScollForMore />
                 <OvalAvatar src="/headshot.jpg" alt="Jose Adrian Buctuanon" />
@@ -55,7 +55,8 @@ export default function Home() {
                   block
                   w-full
                   h-full
-                  scale-[1.5]
+                  md:scale-[1.5]
+                  scale-1
                 "
                 >
                   <Image src={`/3d-image.png`} alt="3d image" fill className="object-contain" />
@@ -113,7 +114,7 @@ export default function Home() {
         <BGAccent className="z-1 bottom-[-70vh] left-[-40vw] text-[100vw] w-[1em] h-[1em]" />
         <div className="container">
           <div className="row justify-center py-20 min-h-[50vh] items-center">
-            <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start">
+            <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-2 md:order-1">
               <div className="flex flex-col space-y-4 items-start justify-start max-w-[500px]">
                 <h3 className="text-4xl">{`Keen to chat about a project of your own?`}</h3>
                 <p>{`Need help with your software needs? Let's connect and chat like old friends! Reach out to me today for personalized solutions and friendly consultation.`}</p>
@@ -132,7 +133,7 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start">
+            <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-1 md:order-2">
               <OvalAvatar src="/talk-exposure-edited.jpg" alt="Jose Adrian Buctuanon" />
             </div>
           </div>

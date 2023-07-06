@@ -55,7 +55,7 @@ const Nav: FC<NavProps> = (props) => {
           <div className={`logo w-[${logoWidth}px]`}>
             <Image src="/logo-dark.png" alt="joseadrianbuctuanon.dev" width={logoWidth} height={logoWidth / 3} />
           </div>
-          <div className="menu">
+          <div className="menu hidden md:block">
             <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4">
               {[...MENU].map((item, k) => (
                 <>

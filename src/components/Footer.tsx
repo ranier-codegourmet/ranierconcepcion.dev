@@ -50,12 +50,12 @@ const Footer: FC<FooterProps> = (props) => {
   return (
     <div className="w-full bg-black py-10">
       <div className="container">
-        <div className="row justify-between items-center py-2">
+        <div className="row justify-between items-center py-2 flex-col md:flex-row">
           <div className={`logo w-[${logoWidth}px]`}>
             <Image src="/logo-dark.png" alt="joseadrianbuctuanon.dev" width={logoWidth} height={logoWidth / 3} />
           </div>
           <div className="menu">
-            <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4">
+            <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4 flex-col md:flex-row">
               {[...SOCIALS].map((item, k) => (
                 <>
                   <li
@@ -74,7 +74,7 @@ const Footer: FC<FooterProps> = (props) => {
                       {item.name}
                     </Link>
                   </li>
-                  {k !== SOCIALS.length - 1 && <span>{'/'}</span>}
+                  {k !== SOCIALS.length - 1 && <span className="hidden md:inline-block">{'/'}</span>}
                 </>
               ))}
             </ul>
