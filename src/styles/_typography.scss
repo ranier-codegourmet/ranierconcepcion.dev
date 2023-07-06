@@ -15,6 +15,7 @@ h1 {
         mb-10;
 }
 
-p {
+p,
+li {
     @apply font-body text-neutral-500 dark:text-body leading-loose;
 }

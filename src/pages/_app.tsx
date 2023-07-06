@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Nav from '@/components/Nav';
 import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
@@ -22,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={`${font_syne.variable} ${font_roboto_mono.variable}`}>
       <Nav />
       <Component {...pageProps} />
+      <Footer />
     </div>
   );
 }

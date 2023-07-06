@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from './Button';
 import { twMerge } from 'tailwind-merge';
-import { MENU } from '@/constants/menus_and_socials';
+import { SOCIALS } from '@/constants/menus_and_socials';
 
-type NavProps = {
+type FooterProps = {
   className?: string;
   darkMode?: boolean;
   logoWidth?: number;
@@ -44,11 +44,11 @@ const itemClassBase = {
   `,
 };
 
-const Nav: FC<NavProps> = (props) => {
+const Footer: FC<FooterProps> = (props) => {
   const { className, darkMode, logoWidth = 250 } = props;
 
   return (
-    <div className="nav fixed top-0 left-0 h-auto w-full z-50">
+    <div className="w-full bg-black py-10">
       <div className="container">
         <div className="row justify-between items-center py-2">
           <div className={`logo w-[${logoWidth}px]`}>
@@ -56,7 +56,7 @@ const Nav: FC<NavProps> = (props) => {
           </div>
           <div className="menu">
             <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4">
-              {[...MENU].map((item, k) => (
+              {[...SOCIALS].map((item, k) => (
                 <>
                   <li
                     className={twMerge(itemClassBase.base, item.isActive ? itemClassBase.active : '')}
@@ -74,18 +74,18 @@ const Nav: FC<NavProps> = (props) => {
                       {item.name}
                     </Link>
                   </li>
-                  {k !== MENU.length - 1 && <span>{'/'}</span>}
+                  {k !== SOCIALS.length - 1 && <span>{'/'}</span>}
                 </>
               ))}
             </ul>
           </div>
-          <div className="hire-me">
-            <Button>Hire Me !</Button>
-          </div>
+        </div>
+        <div className="row justify-center items-center text-center mt-10 py-2 opacity-40 border-t-[1px] border-solid border-white">
+          <p>© 2023 Jose Adrian Buctuanon. All rights reserved.</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Nav;
+export default Footer;
