@@ -1,14 +1,24 @@
-import BGAccent from '@/components/BGAccent';
-import BigTextAccent from '@/components/BigTextAccent';
+import BGAccent from '@/components/accents-decors/BGAccent';
 import Button from '@/components/Button';
 import ButtonLink from '@/components/ButtonLink';
 import OvalAvatar from '@/components/OvalAvatar';
-import ScollForMore from '@/components/ScrollForMore';
+import ScollForMore from '@/components/accents-decors/ScrollForMore';
 import { CLIENTS } from '@/constants/clients';
 import { SOCIALS } from '@/constants/menus_and_socials';
 import Image from 'next/image';
+import type { InferGetStaticPropsType, GetStaticProps } from 'next';
+import { getAllCaseStudies, getAllCaseStudiesReturnType } from '@/lib/case-studies/fns';
+import { FC } from 'react';
+import BigTextAccent from '@/components/accents-decors/BigTextAccent';
+import CaseStudyCard from '@/components/cards/CaseStudyCard';
 
-export default function Home() {
+interface HomePageProps {
+  caseStudies: getAllCaseStudiesReturnType;
+}
+
+const HomePage: FC<HomePageProps> = (props) => {
+  const { caseStudies } = props;
+
   return (
     <main className={`flex min-h-screen flex-col  overflow-hidden px-4 pt-[100px] md:px-0`}>
       <section id="home" className="hero-section min-h-screen flex justify-center items-center relative">
@@ -81,15 +91,21 @@ export default function Home() {
           <BGAccent className="z-1 bottom-[-50vh] right-[-30vw] text-[100vw] w-[1em] h-[1em]" />
         </div>
       </section>
-      <section id="work" className="work-section min-h-screen flex justify-center items-center flex-col">
-        <BigTextAccent text="Works" />
+      <section id="case-studies" className="work-section min-h-screen flex justify-center items-center flex-col">
+        <BigTextAccent text="Case Studies" direction="right" />
         <div className="container">
-          <div className="row justify-center py-20 min-h-[60vh] items-center">
-            <div className="w-full md:w-1/3 ">
-              <h3 className="mb-10 text-4xl">WIP</h3>
-            </div>
+          <div className="row justify-center">
+            <h3 className="text-4xl mb-10">Selected Case Studies</h3>
           </div>
-          <div className="row min-h-screen justify-start flex-col items-center">
+          <div className="row justify-center py-20 items-start">
+            {caseStudies.items.map((cs, k) => (
+              <div className="w-full md:w-1/3 " key={`${k}-${cs.slug}`}>
+                <CaseStudyCard {...cs} />
+              </div>
+            ))}
+          </div>
+
+          <div className="row min-h-[20vh] justify-start flex-col items-center">
             <div className="w-full flex flex-col items-center">
               <h3 className="text-4xl mb-10">Clients and Work Experiences</h3>
               <ul className="flex space-x-2 flex-wrap justify-center">
@@ -141,4 +157,16 @@ export default function Home() {
       </section>
     </main>
   );
+};
+
+export async function getStaticProps() {
+  const data = await getAllCaseStudies({ limit: 5 });
+
+  return {
+    props: {
+      caseStudies: data,
+    },
+  };
 }
+
+export default HomePage;

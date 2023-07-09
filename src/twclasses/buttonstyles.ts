@@ -11,7 +11,25 @@ export const BTN_BASE_CLASS = `
   ease-in-out
 `;
 
-export const BTN_NORMAL_THEME = `
+export const MUTED = `
+  btn--muted
+  bg-black
+  text-white
+  border-color-black
+  hover:bg-opacity-5
+  hover:text-black
+  border-none
+
+  dark:bg-white
+  dark:bg-opacity-5
+  dark:text-white
+  dark:hover:bg-opacity-10
+  dark:hover:text-white
+  dark:hover:border-white
+`;
+
+export const NORMAL = `
+  btn--normal
   bg-black
   text-white
   border-color-black
@@ -28,7 +46,8 @@ export const BTN_NORMAL_THEME = `
   dark:hover:border-white
 `;
 
-export const BTN_SPECIAL_THEME = `
+export const SPECIAL = `
+  btn--special
   bg-gradient-to-r
   from-green-400
   to-blue-500

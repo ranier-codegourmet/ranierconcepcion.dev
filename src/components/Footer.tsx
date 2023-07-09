@@ -47,13 +47,14 @@ const itemClassBase = {
 const Footer: FC<FooterProps> = (props) => {
   const { className, darkMode, logoWidth = 250 } = props;
 
+  const componentClass = 'footer-section w-full bg-black py-10';
   return (
-    <div className="w-full bg-black py-10">
+    <div className={twMerge(componentClass, className)}>
       <div className="container">
         <div className="row justify-between items-center py-2 flex-col md:flex-row">
-          <div className={`logo w-[${logoWidth}px]`}>
+          <Link href="/" className={`logo w-[${logoWidth}px] block`}>
             <Image src="/logo-dark.png" alt="joseadrianbuctuanon.dev" width={logoWidth} height={logoWidth / 3} />
-          </div>
+          </Link>
           <div className="menu">
             <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4 flex-col md:flex-row">
               {[...SOCIALS].map((item, k) => (

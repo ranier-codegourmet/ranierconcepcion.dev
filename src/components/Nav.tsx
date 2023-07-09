@@ -52,9 +52,9 @@ const Nav: FC<NavProps> = (props) => {
     <div className="nav fixed top-0 left-0 h-auto w-full z-50">
       <div className="container">
         <div className="row justify-between items-center py-2">
-          <div className={`logo w-[${logoWidth}px]`}>
+          <Link href="/" className={`logo w-[${logoWidth}px] block`}>
             <Image src="/logo-dark.png" alt="joseadrianbuctuanon.dev" width={logoWidth} height={logoWidth / 3} />
-          </div>
+          </Link>
           <div className="menu hidden md:block">
             <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4">
               {[...MENU].map((item, k) => (

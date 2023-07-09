@@ -2,28 +2,17 @@ import type { FC } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
-import { BTN_BASE_CLASS, BTN_NORMAL_THEME, BTN_SPECIAL_THEME } from '@/twclasses/buttonstyles';
+import * as BUTTONSTYLES from '@/twclasses/buttonstyles';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  isSpecial?: boolean;
+  buttonStyle?: 'NORMAL' | 'SPECIAL' | 'MUTED';
 }
 
 const Button: FC<ButtonProps> = (props) => {
-  const { children, className = '', isSpecial } = props;
-
-  const normalBtnClass = twMerge(BTN_BASE_CLASS, BTN_NORMAL_THEME, className);
-
-  const specialBtnClass = twMerge(BTN_BASE_CLASS, BTN_SPECIAL_THEME, className);
+  const { children, className = '', buttonStyle = 'NORMAL' } = props;
 
   return (
-    <button
-      className={cn({
-        [`btn--regular ${normalBtnClass}`]: !isSpecial,
-        [`btn--special ${specialBtnClass}`]: isSpecial,
-      })}
-    >
-      {children}
-    </button>
+    <button className={twMerge(BUTTONSTYLES.BTN_BASE_CLASS, BUTTONSTYLES[buttonStyle], className)}>{children}</button>
   );
 };
 

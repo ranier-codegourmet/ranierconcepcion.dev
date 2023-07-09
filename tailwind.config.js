@@ -23,6 +23,20 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        'marquee-ltr': 'marquee-ltr 50s linear infinite alternate',
+        'marquee-rtl': 'marquee-rtl 50s linear infinite alternate',
+      },
+      keyframes: {
+        'marquee-rtl': {
+          '0%': { transform: 'translateX(50%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-ltr': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(50%)' },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
