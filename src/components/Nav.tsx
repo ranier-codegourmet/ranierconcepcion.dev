@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Button from './Button';
 import { twMerge } from 'tailwind-merge';
 import { MENU } from '@/constants/menus_and_socials';
 import ButtonLink from './ButtonLink';
+import { useRouter } from 'next/router';
 
 type NavProps = {
   className?: string;
@@ -47,7 +47,8 @@ const itemClassBase = {
 
 const Nav: FC<NavProps> = (props) => {
   const { className, darkMode, logoWidth = 250 } = props;
-
+  const router = useRouter();
+  console.log('router === ', router);
   return (
     <div className="nav fixed top-0 left-0 h-auto w-full z-50">
       <div className="container">
@@ -60,7 +61,7 @@ const Nav: FC<NavProps> = (props) => {
               {[...MENU].map((item, k) => (
                 <>
                   <li
-                    className={twMerge(itemClassBase.base, item.isActive ? itemClassBase.active : '')}
+                    className={twMerge(itemClassBase.base, router.pathname === item.href ? itemClassBase.active : '')}
                     key={`${k}-${item.name.toLowerCase().replaceAll(' ', '-')}`}
                   >
                     <Link

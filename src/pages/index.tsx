@@ -20,7 +20,7 @@ const HomePage: FC<HomePageProps> = (props) => {
   const { caseStudies } = props;
 
   return (
-    <main className={`flex min-h-screen flex-col  overflow-hidden px-4 pt-[100px] md:px-0`}>
+    <>
       <section id="home" className="hero-section min-h-screen flex justify-center items-center relative">
         <div className="z-10 container">
           <div className="row items-center">
@@ -122,40 +122,7 @@ const HomePage: FC<HomePageProps> = (props) => {
           </div>
         </div>
       </section>
-      <section
-        id="contact"
-        className="contact-section flex justify-center items-center flex-col relative overflow-hidden"
-      >
-        <BigTextAccent text="Contact" />
-        <BGAccent className="z-1 bottom-[-70vh] left-[-40vw] text-[100vw] w-[1em] h-[1em]" />
-        <div className="container">
-          <div className="row justify-center py-20 min-h-[50vh] items-center">
-            <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-2 md:order-1">
-              <div className="flex flex-col space-y-4 items-start justify-start max-w-[500px]">
-                <h3 className="text-4xl">{`Keen to chat about a project of your own?`}</h3>
-                <p>{`Need help with your software needs? Let's connect and chat like old friends! Reach out to me today for personalized solutions and friendly consultation.`}</p>
-                <ButtonLink href="mailto:jose@codegourmet.io">{`Let's talk`}</ButtonLink>
-              </div>
-              <ul className="flex space-x-2 flex-wrap">
-                {[...SOCIALS].map((s, k) => (
-                  <>
-                    <li key={`${k}-${s.name.toLowerCase().replaceAll(' ', '-')}}`}>
-                      <a href={s.href} target="_blank" rel="noreferrer" className="mx-2 p-2 text-center">
-                        {s.name}
-                      </a>
-                    </li>
-                    {SOCIALS.length - 1 !== k && <span>{` / `}</span>}
-                  </>
-                ))}
-              </ul>
-            </div>
-            <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-1 md:order-2">
-              <OvalAvatar src="/talk-exposure-edited.jpg" alt="Jose Adrian Buctuanon" />
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    </>
   );
 };
 

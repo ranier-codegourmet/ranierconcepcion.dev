@@ -9,19 +9,18 @@ export const MENU: PageLinksModel[] = [
   {
     name: 'Home',
     href: '/',
-    isActive: true,
   },
   {
     name: 'About',
     href: '/about',
   },
   {
-    name: 'Works',
-    href: '/works',
+    name: 'Case Studies',
+    href: '/case-studies',
   },
   {
     name: 'Contact',
-    href: '/contact',
+    href: '#contact',
   },
 ];
 
