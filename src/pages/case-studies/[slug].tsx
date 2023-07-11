@@ -12,6 +12,9 @@ export type CaseStudyPageProps = {
 };
 
 const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
+  // if (!props.caseStudyData) {
+  //   return;
+  // }
   const { caseStudyData } = props;
 
   const {
@@ -107,8 +110,6 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
 export async function getStaticPaths() {
   const items = await getAllCaseStudiesPages();
 
-  // console.log('items', items);
-
   return {
     paths:
       items?.map(({ slug }: { slug: string }) => {
@@ -119,7 +120,7 @@ export async function getStaticPaths() {
         };
       }) ?? [],
 
-    fallback: true,
+    fallback: false,
   };
 }
 
