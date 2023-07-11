@@ -127,7 +127,7 @@ const HomePage: FC<HomePageProps> = (props) => {
 };
 
 export async function getStaticProps() {
-  const data = await getAllCaseStudies({ limit: 5 });
+  const data = await getAllCaseStudies({ limit: 3 });
 
   return {
     props: {
