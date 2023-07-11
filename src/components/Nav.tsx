@@ -48,9 +48,8 @@ const itemClassBase = {
 const Nav: FC<NavProps> = (props) => {
   const { className, darkMode, logoWidth = 250 } = props;
   const router = useRouter();
-  console.log('router === ', router);
   return (
-    <div className="nav fixed top-0 left-0 h-auto w-full z-50">
+    <div className={twMerge('nav fixed top-0 left-0 h-auto w-full z-50', className)}>
       <div className="container">
         <div className="row justify-between items-center py-2">
           <Link href="/" className={`logo w-[${logoWidth}px] block`}>

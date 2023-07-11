@@ -32,7 +32,7 @@ export const CASE_STUDY_RESULTS_FIELDS = `
 
 export const CASE_STUDY_PAGE_FIELDS = `
   ${CASE_STUDY_RESULTS_FIELDS},
-  testimonial,
+  testimony,
   overview(locale: "${GQL_LOCALE}") {
       json
   },

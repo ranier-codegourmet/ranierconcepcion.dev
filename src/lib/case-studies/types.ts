@@ -22,7 +22,7 @@ export interface TCaseStudyResultFields extends TCaseStudySeachableFields {
   websiteLink: string;
 }
 
-export interface CASE_STUDY_PAGE_FIELDS_TYPE extends TCaseStudyResultFields {
+export interface TCaseStudyPageFields extends TCaseStudyResultFields {
   overview: TContentfulJSON;
   problem: TContentfulJSON;
   solution: TContentfulJSON;
