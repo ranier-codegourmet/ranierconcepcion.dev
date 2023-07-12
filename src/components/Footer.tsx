@@ -8,12 +8,12 @@ import ButtonLink from './ButtonLink';
 import OvalAvatar from './OvalAvatar';
 import BGAccent from './accents-decors/BGAccent';
 import BigTextAccent from './accents-decors/BigTextAccent';
+import Logo, { LogoProps } from './Logo';
 
-type FooterProps = {
+interface FooterProps extends Pick<LogoProps, 'logoWidth' | 'logoWidthMobile'> {
   className?: string;
   darkMode?: boolean;
-  logoWidth?: number;
-};
+}
 
 const itemClassBase = {
   base: `
@@ -49,7 +49,7 @@ const itemClassBase = {
 };
 
 const Footer: FC<FooterProps> = (props) => {
-  const { className, darkMode, logoWidth = 250 } = props;
+  const { className, darkMode, logoWidth = 250, logoWidthMobile = 50 } = props;
 
   const componentClass = 'footer-section w-full bg-black py-10';
   return (
@@ -90,9 +90,7 @@ const Footer: FC<FooterProps> = (props) => {
       <div className={twMerge(componentClass, className)}>
         <div className="container">
           <div className="row justify-between items-center py-2 flex-col md:flex-row">
-            <Link href="/" className={`logo w-[${logoWidth}px] block`}>
-              <Image src="/logo-dark.png" alt="joseadrianbuctuanon.dev" width={logoWidth} height={logoWidth / 3} />
-            </Link>
+            <Logo isDark={darkMode} logoWidth={logoWidth} logoWidthMobile={logoWidthMobile} />
             <div className="menu">
               <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4 flex-col md:flex-row">
                 {[...SOCIALS].map((item, k) => (

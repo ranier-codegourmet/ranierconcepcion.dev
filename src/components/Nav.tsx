@@ -5,12 +5,14 @@ import { twMerge } from 'tailwind-merge';
 import { MENU } from '@/constants/menus_and_socials';
 import ButtonLink from './ButtonLink';
 import { useRouter } from 'next/router';
+import Logo, { LogoProps } from './Logo';
+import NavMenu from './NavMenu';
+import Button from './Button';
 
-type NavProps = {
+interface NavProps extends Pick<LogoProps, 'logoWidth' | 'logoWidthMobile'> {
   className?: string;
   darkMode?: boolean;
-  logoWidth?: number;
-};
+}
 
 const itemClassBase = {
   base: `
@@ -46,42 +48,27 @@ const itemClassBase = {
 };
 
 const Nav: FC<NavProps> = (props) => {
-  const { className, darkMode, logoWidth = 250 } = props;
+  const { className, darkMode, logoWidth = 250, logoWidthMobile = 50 } = props;
   const router = useRouter();
   return (
-    <div className={twMerge('nav fixed top-0 left-0 h-auto w-full z-50', className)}>
-      <div className="container">
-        <div className="row justify-between items-center py-2">
-          <Link href="/" className={`logo w-[${logoWidth}px] block`}>
-            <Image src="/logo-dark.png" alt="joseadrianbuctuanon.dev" width={logoWidth} height={logoWidth / 3} />
-          </Link>
-          <div className="menu hidden md:block">
-            <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4">
-              {[...MENU].map((item, k) => (
-                <>
-                  <li
-                    className={twMerge(itemClassBase.base, router.pathname === item.href ? itemClassBase.active : '')}
-                    key={`${k}-${item.name.toLowerCase().replaceAll(' ', '-')}`}
-                  >
-                    <Link
-                      href={item.href}
-                      className={`
-                        font-body
-                        px-4
-                        py-2
-                        block
-                      `}
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                  {k !== MENU.length - 1 && <span>{'/'}</span>}
-                </>
-              ))}
-            </ul>
+    <div
+      className={twMerge(
+        'nav fixed top-0 left-0 h-auto w-full z-50 bg-black bg-opacity-90 md:bg-transparent ',
+        className,
+      )}
+    >
+      <div className="container p-2">
+        <div className="row justify-between items-center py-2 flex-nowrap">
+          <NavMenu menu={MENU} isMobile />
+          <Logo isDark={darkMode} logoWidth={logoWidth} logoWidthMobile={logoWidthMobile} />
+          <NavMenu menu={MENU} />
+          <div className="hire-me hidden md:block">
+            <ButtonLink href="mailto:jose@codegourmet.io">Hire Me !</ButtonLink>
           </div>
           <div className="hire-me">
-            <ButtonLink href="mailto:jose@codegourmet.io">Hire Me !</ButtonLink>
+            <Button buttonStyle="MUTED" className="text-xs px-0 py-0 w-[50px] h-[50px]">
+              light
+            </Button>
           </div>
         </div>
       </div>
