@@ -46,23 +46,33 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
             <div className="client-info-col w-full md:w-1/3 ">
               <ul className="client-info flex flex-col space-y-2">
                 <li className="md:flex-row flex-col flex justify-between w-full">
-                  <span className="label pr-2 whitespace-nowrap">Client</span>
+                  <span className="label pr-2 whitespace-nowrap font-bold">Client</span>
                   <span className="text-left md:text-right value">{client}</span>
                 </li>
                 <li className="md:flex-row flex-col flex justify-between w-full">
-                  <span className="label pr-2 whitespace-nowrap">Website</span>
+                  <span className="label pr-2 whitespace-nowrap font-bold">Website</span>
                   <Link href={websiteLink} className="text-left md:text-right value">
                     {websiteLink}
                   </Link>
                 </li>
                 <li className="md:flex-row flex-col flex justify-between w-full">
-                  <span className="label pr-2 whitespace-nowrap">Roles</span>
+                  <span className="label pr-2 whitespace-nowrap font-bold">Roles</span>
                   <span className="text-left md:text-right value">{roles.join(' | ')}</span>
                 </li>
-                <li className="md:flex-row flex-col flex justify-between w-full">
-                  <span className="label pr-2 whitespace-nowrap">Tech Stack</span>
+                <li className="flex-col flex justify-between w-full align-start">
+                  <span className="label pr-2 whitespace-nowrap font-bold leading-none mb-2">Tech Stack</span>
                   <span className="text-left md:text-right value flex-wrap flex leading-none">
-                    {techStack.join(' - ')}
+                    {techStack?.length > 0 && (
+                      <ul className="card__info__techstack flex flex-wrap items-center justify-start">
+                        {techStack.map((tech, k) => (
+                          <>
+                            <li className="pill" key={`${k}-${tech.toLowerCase().replaceAll(' ', '-')}`}>
+                              {tech}
+                            </li>
+                          </>
+                        ))}
+                      </ul>
+                    )}
                   </span>
                 </li>
               </ul>

@@ -38,18 +38,6 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
             <h4 className="card__info__title text-2xl">{title}</h4>
           </Link>
         )}
-        {techStack?.length > 0 && (
-          <ul className="card__info__techstack flex flex-wrap items-center justify-start">
-            {techStack.map((tech, k) => (
-              <>
-                <li className=" text-xs font-body px-2 py-2 " key={`${k}-${tech.toLowerCase().replaceAll(' ', '-')}`}>
-                  {tech}
-                </li>
-                <span>{k !== techStack.length - 1 && <span className="hidden md:inline-block">{'-'}</span>}</span>
-              </>
-            ))}
-          </ul>
-        )}
         {excerpt && (
           <div className="card__info__excerpt ">
             <RichText
@@ -59,6 +47,17 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
               }}
             />
           </div>
+        )}
+        {techStack?.length > 0 && (
+          <ul className="card__info__techstack flex flex-wrap items-center justify-start">
+            {techStack.map((tech, k) => (
+              <>
+                <li className="pill" key={`${k}-${tech.toLowerCase().replaceAll(' ', '-')}`}>
+                  {tech}
+                </li>
+              </>
+            ))}
+          </ul>
         )}
         <ButtonLink href={csUrl} className="block" buttonStyle="MUTED">
           View Project

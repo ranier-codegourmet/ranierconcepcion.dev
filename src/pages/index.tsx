@@ -18,6 +18,7 @@ interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = (props) => {
   const { caseStudies } = props;
+  console.log('caseStudies == ', caseStudies);
 
   return (
     <>
@@ -103,6 +104,9 @@ const HomePage: FC<HomePageProps> = (props) => {
                 <CaseStudyCard {...cs} />
               </div>
             ))}
+            <div className="w-full flex justify-center items-center my-10">
+              <ButtonLink href="/case-studies">More Case Studies</ButtonLink>
+            </div>
           </div>
 
           <div className="row min-h-[20vh] justify-start flex-col items-center">

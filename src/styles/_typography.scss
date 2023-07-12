@@ -19,3 +19,7 @@ p,
 li {
     @apply font-body text-neutral-500 dark:text-body leading-loose;
 }
+
+a {
+    @apply hover:underline;
+}
