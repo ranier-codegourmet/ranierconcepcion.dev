@@ -14,6 +14,8 @@ import CaseStudyCard from '@/components/cards/CaseStudyCard';
 import Layout from '@/components/Layout';
 import { RootState } from '@/redux/reducers';
 import { useSelector } from 'react-redux';
+import Lottie from 'react-lottie';
+import animationData from '@/lotties/lottie_anim.json';
 
 interface HomePageProps {
   caseStudies: getAllCaseStudiesReturnType;
@@ -61,7 +63,20 @@ const HomePage: FC<HomePageProps> = (props) => {
               </h3>
             </div>
             <div className="w-full md:w-2/3 ">
-              <div className="box w-full relative w-full max-w-[600px] mx-auto h-[300px] bg-slate-500">
+              <Lottie
+                options={{
+                  loop: true,
+                  autoplay: true,
+                  animationData: animationData,
+                  rendererSettings: {
+                    preserveAspectRatio: 'xMidYMid slice',
+                  },
+                }}
+                width="100%"
+                height="100%"
+                speed={0.5}
+              />
+              {/* <div className="box w-full relative w-full max-w-[600px] mx-auto h-[300px] bg-slate-500">
                 <div
                   className="
                   box-big
@@ -79,7 +94,7 @@ const HomePage: FC<HomePageProps> = (props) => {
                 >
                   <Image src={`/3d-image.png`} alt="3d image" fill className="object-contain" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="row justify-center py-20 min-h-screen items-center">
