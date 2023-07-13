@@ -3,9 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 
 export default function Document() {
   return (
-    <Html lang="en" data-mode="dark">
+    <Html lang="en">
       <Head />
-      <body className="bg-white dark:bg-black">
+      <body>
         <Main />
         <NextScript />
         <Analytics />

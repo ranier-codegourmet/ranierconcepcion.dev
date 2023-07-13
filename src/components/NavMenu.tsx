@@ -7,6 +7,8 @@ import ButtonLink from './ButtonLink';
 import { useRouter } from 'next/router';
 import Logo, { LogoProps } from './Logo';
 import Button from './Button';
+import { useDispatch } from 'react-redux';
+import { toggleIsMobileOpen } from '@/redux/reducers/project';
 
 type NavMenuProps = {
   isMobile?: boolean;
@@ -47,7 +49,8 @@ const itemClassBase = {
     hover:after:opacity-100
   `,
   mobileBase: `
-    text-white
+    dark:text-white
+    text-black
     text-left
     text-3xl
     leading-loose
@@ -83,6 +86,7 @@ const itemClassBase = {
 const NavMenu: FC<NavMenuProps> = (props) => {
   const { menu, className = '', isMobile, isMobileOpen } = props;
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const componentClass = twMerge(
     'menu ',
@@ -132,12 +136,20 @@ const NavMenu: FC<NavMenuProps> = (props) => {
     );
   };
 
+  const toggleMenu = (forceClose = false) => {
+    dispatch(toggleIsMobileOpen(forceClose ? false : !isMobileOpen));
+  };
+
   const renderMenu = () => {
     return (
       <ul className={ulClass}>
         {[...menu].map((item, k) => (
           <>
-            <li className={liClass(item)} key={`${k}-${item.name.toLowerCase().replaceAll(' ', '-')}`}>
+            <li
+              className={liClass(item)}
+              key={`${k}-${item.name.toLowerCase().replaceAll(' ', '-')}`}
+              onClick={() => toggleMenu(true)}
+            >
               <Link href={item.href} className=" font-body px-4 py-2 block">
                 {item.name}
               </Link>
@@ -153,18 +165,21 @@ const NavMenu: FC<NavMenuProps> = (props) => {
     <div className={componentClass}>
       {isMobile ? (
         <>
-          <Button buttonStyle="MUTED" className="text-xs px-0 py-0 w-[50px] h-[50px]">
-            open
+          <Button
+            buttonStyle="MUTED"
+            className="relative z-50 text-xs px-0 py-0 w-[50px] h-[50px]"
+            onClick={() => toggleMenu()}
+          >
+            {isMobileOpen ? 'close' : 'menu'}
           </Button>
           <div
             className={twMerge(
-              'menu-mobile__container w-full h-full flex flex-col ease-in-out transition-all duration-300',
+              'z-75 menu-mobile__container absolute top-[100px] left-0 dark:bg-black bg-white w-full h-screen flex flex-col ease-in-out transition-all duration-300 max-h-[calc(100vh-100px)]',
               isMobileOpen
-                ? 'menu-mobile__container--open opacity-100 visible max-h-full'
-                : 'menu-mobile__container--close opacity-0 invisible max-h-0',
+                ? 'menu-mobile__container--open opacity-100 visible '
+                : 'menu-mobile__container--close opacity-0 invisible ',
             )}
           >
-            <p className="text-xs uppercase shrink-0 leading-[50px] w-full text-center">Menu</p>
             {renderMenu()}
           </div>
         </>

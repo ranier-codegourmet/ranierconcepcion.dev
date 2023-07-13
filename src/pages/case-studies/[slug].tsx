@@ -5,6 +5,7 @@ import type { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import BigTextAccent from '@/components/accents-decors/BigTextAccent';
+import Layout from '@/components/Layout';
 // import type { CONTENTFUL_IMAGE_ASSET_TYPE } from 'src/types/contentful';
 
 export type CaseStudyPageProps = {
@@ -35,7 +36,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
   } = caseStudyData;
 
   return (
-    <>
+    <Layout>
       <section id="overview" className="flex flex-col  min-h-[400px]">
         <div className="container py-10 h-auto min-h-[calc(50vh_-_100px)] flex items-center justify-center">
           <div className="row justify-between">
@@ -113,7 +114,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

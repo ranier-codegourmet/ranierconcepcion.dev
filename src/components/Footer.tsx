@@ -12,12 +12,13 @@ import Logo, { LogoProps } from './Logo';
 
 interface FooterProps extends Pick<LogoProps, 'logoWidth' | 'logoWidthMobile'> {
   className?: string;
-  darkMode?: boolean;
+  isDarkMode: boolean;
 }
 
 const itemClassBase = {
   base: `
-    text-white
+    text-neutral-600
+    dark:text-white
     text-center
     relative
     min-w-[120px]
@@ -49,9 +50,9 @@ const itemClassBase = {
 };
 
 const Footer: FC<FooterProps> = (props) => {
-  const { className, darkMode, logoWidth = 250, logoWidthMobile = 50 } = props;
+  const { className, isDarkMode, logoWidth = 250, logoWidthMobile = 50 } = props;
 
-  const componentClass = 'footer-section w-full bg-black py-10';
+  const componentClass = 'footer-section w-full bg-neutral-300 dark:bg-black py-10 md:px-0 px-4';
   return (
     <>
       <section
@@ -87,12 +88,12 @@ const Footer: FC<FooterProps> = (props) => {
           </div>
         </div>
       </section>
-      <div className={twMerge(componentClass, className)}>
+      <footer className={twMerge(componentClass, className)}>
         <div className="container">
           <div className="row justify-between items-center py-2 flex-col md:flex-row">
-            <Logo isDark={darkMode} logoWidth={logoWidth} logoWidthMobile={logoWidthMobile} />
+            <Logo isDarkMode={isDarkMode} logoWidth={logoWidth} logoWidthMobile={logoWidthMobile} />
             <div className="menu">
-              <ul className="flex items-center bg-black bg-opacity-90 rounded-full py-2 px-4 flex-col md:flex-row">
+              <ul className="flex items-center  bg-opacity-90 rounded-full py-2 px-4 flex-col md:flex-row">
                 {[...SOCIALS].map((item, k) => (
                   <>
                     <li
@@ -117,11 +118,11 @@ const Footer: FC<FooterProps> = (props) => {
               </ul>
             </div>
           </div>
-          <div className="row justify-center items-center text-center mt-10 py-2 opacity-40 border-t-[1px] border-solid border-white">
+          <div className="row justify-center items-center text-center mt-10 py-2 opacity-40 border-t-[1px] border-solid dark:border-white border-neutral-800">
             <p>© 2023 Jose Adrian Buctuanon. All rights reserved.</p>
           </div>
         </div>
-      </div>
+      </footer>
     </>
   );
 };
