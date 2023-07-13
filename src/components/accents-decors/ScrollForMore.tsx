@@ -7,6 +7,7 @@ const ScollForMore: FC = () => {
     h-full
     absolute
     origin-center
+    mt-[-2px]
   `;
   // animate - [spin_50s_linear_infinite];
 
@@ -18,7 +19,12 @@ const ScollForMore: FC = () => {
     transition-all
   `;
   return (
-    <div className="scroll-for-more cursor-pointer absolute top-0 right-0 z-10">
+    <div
+      className="scroll-for-more cursor-pointer absolute top-0 right-0 z-10
+    bg-black
+    rounded-full
+    p-1"
+    >
       <div className="rounded-text relative text-[120px] md:text-[200px] w-[1em] h-[1em]">
         <div className="adjust-box absolute w-full h-full top-[-2%] left-0">
           <svg className={svgTextClass} width="131" height="121" viewBox="0 0 131 121" fill="none">

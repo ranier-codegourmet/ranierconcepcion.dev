@@ -11,6 +11,7 @@ import { getAllCaseStudies, getAllCaseStudiesReturnType } from '@/lib/case-studi
 import { FC } from 'react';
 import BigTextAccent from '@/components/accents-decors/BigTextAccent';
 import CaseStudyCard from '@/components/cards/CaseStudyCard';
+import Layout from '@/components/Layout';
 
 interface HomePageProps {
   caseStudies: getAllCaseStudiesReturnType;
@@ -18,10 +19,11 @@ interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = (props) => {
   const { caseStudies } = props;
+
   console.log('caseStudies == ', caseStudies);
 
   return (
-    <>
+    <Layout>
       <section id="home" className="hero-section min-h-screen flex justify-center items-center relative">
         <div className="z-10 container">
           <div className="row items-center">
@@ -126,7 +128,7 @@ const HomePage: FC<HomePageProps> = (props) => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

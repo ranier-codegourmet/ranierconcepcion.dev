@@ -757,6 +757,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.195":
+  version: 4.14.195
+  resolution: "@types/lodash@npm:4.14.195"
+  checksum: 39b75ca635b3fa943d17d3d3aabc750babe4c8212485a4df166fe0516e39288e14b0c60afc6e21913cc0e5a84734633c71e617e2bd14eaa1cf51b8d7799c432e
+  languageName: node
+  linkType: hard
+
 "@types/minimist@npm:^1.2.0":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
@@ -3482,6 +3489,7 @@ __metadata:
     "@redux-devtools/core": ^3.13.1
     "@reduxjs/toolkit": ^1.9.5
     "@tailwindcss/typography": ^0.5.9
+    "@types/lodash": ^4.14.195
     "@types/node": 20.3.1
     "@types/react": 18.2.12
     "@types/react-dom": 18.2.5
@@ -3497,7 +3505,7 @@ __metadata:
     postcss: 8.4.24
     react: 18.2.0
     react-dom: 18.2.0
-    react-redux: ^8.1.0
+    react-redux: ^8.1.1
     recharts: ^2.7.1
     redux: ^4.2.1
     sass: ^1.63.4
@@ -4780,9 +4788,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-redux@npm:^8.1.0":
-  version: 8.1.0
-  resolution: "react-redux@npm:8.1.0"
+"react-redux@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "react-redux@npm:8.1.1"
   dependencies:
     "@babel/runtime": ^7.12.1
     "@types/hoist-non-react-statics": ^3.3.1
@@ -4791,7 +4799,6 @@ __metadata:
     react-is: ^18.0.0
     use-sync-external-store: ^1.0.0
   peerDependencies:
-    "@reduxjs/toolkit": ^1 || ^2.0.0-beta.0
     "@types/react": ^16.8 || ^17.0 || ^18.0
     "@types/react-dom": ^16.8 || ^17.0 || ^18.0
     react: ^16.8 || ^17.0 || ^18.0
@@ -4799,8 +4806,6 @@ __metadata:
     react-native: ">=0.59"
     redux: ^4 || ^5.0.0-beta.0
   peerDependenciesMeta:
-    "@reduxjs/toolkit":
-      optional: true
     "@types/react":
       optional: true
     "@types/react-dom":
@@ -4811,7 +4816,7 @@ __metadata:
       optional: true
     redux:
       optional: true
-  checksum: a6b9a07b056677b75596f3eeb56816c1cd611fc52e09ff03e9538cd050223c4f0187f9572b703c1b1d648ad115c5753894f8c709d0f58278e5652026963bf9d6
+  checksum: 370676330727764d78f35e9c5a0ed0591d79482fe9b70fffcab4aa6bcccc6194e4f1ebd818b4b390351dea5557e70d3bd4d95d7a0ac9baa1f45d6bf2230ee713
   languageName: node
   linkType: hard
 

@@ -13,8 +13,8 @@ export const BTN_BASE_CLASS = `
 
 export const MUTED = `
   btn--muted
-  bg-black
-  text-white
+  bg-neutral-300
+  text-neutral-600
   border-color-black
   hover:bg-opacity-5
   hover:text-black
