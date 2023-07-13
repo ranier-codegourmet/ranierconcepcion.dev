@@ -4,8 +4,13 @@ import OvalAvatar from '@/components/OvalAvatar';
 import BGAccent from '@/components/accents-decors/BGAccent';
 import Image from 'next/image';
 import Layout from '@/components/Layout';
+import { RootState } from '@/redux/reducers';
+import { useSelector } from 'react-redux';
+import caseStudies from './case-studies';
 
 const AboutPage: FC = (props) => {
+  const { isDarkMode } = useSelector((state: RootState) => state.project);
+  console.log('caseStudies == ', caseStudies);
   return (
     <Layout>
       <section id="about" className="work-section min-h-screen flex justify-center items-center flex-col relative">
@@ -25,7 +30,10 @@ const AboutPage: FC = (props) => {
               </p>
             </div>
           </div>
-          <BGAccent className="z-1 bottom-[-50vh] right-[-30vw] text-[100vw] w-[1em] h-[1em]" />
+          <BGAccent
+            isDarkMode={isDarkMode}
+            className="z-1 top-0 left-[-30vw] text-[600px] md:text-[150vw] lg:text-[100vw] w-[1em] h-[1em]"
+          />
         </div>
       </section>
     </Layout>

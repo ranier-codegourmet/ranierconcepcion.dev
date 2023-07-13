@@ -59,7 +59,7 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
             ))}
           </ul>
         )}
-        <ButtonLink href={csUrl} className="block" buttonStyle="MUTED">
+        <ButtonLink href={csUrl} className="block w-full md:w-auto text-center " buttonStyle="MUTED">
           View Project
         </ButtonLink>
       </div>

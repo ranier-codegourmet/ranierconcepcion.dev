@@ -12,6 +12,8 @@ import { FC } from 'react';
 import BigTextAccent from '@/components/accents-decors/BigTextAccent';
 import CaseStudyCard from '@/components/cards/CaseStudyCard';
 import Layout from '@/components/Layout';
+import { RootState } from '@/redux/reducers';
+import { useSelector } from 'react-redux';
 
 interface HomePageProps {
   caseStudies: getAllCaseStudiesReturnType;
@@ -19,7 +21,7 @@ interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = (props) => {
   const { caseStudies } = props;
-
+  const { isDarkMode } = useSelector((state: RootState) => state.project);
   console.log('caseStudies == ', caseStudies);
 
   return (
@@ -44,7 +46,10 @@ const HomePage: FC<HomePageProps> = (props) => {
             </div>
           </div>
         </div>
-        <BGAccent className="z-1 top-[10vh] left-[-30vw] text-[100vw] w-[1em] h-[1em]" />
+        <BGAccent
+          isDarkMode={isDarkMode}
+          className="z-1 top-[10vh] left-[-30vw] text-[600px] md:text-[150vw] lg:text-[100vw] w-[1em] h-[1em]"
+        />
       </section>
       <section id="about" className="work-section min-h-screen flex justify-center items-center flex-col relative">
         <BigTextAccent text="About" />
@@ -91,7 +96,10 @@ const HomePage: FC<HomePageProps> = (props) => {
               </p>
             </div>
           </div>
-          <BGAccent className="z-1 bottom-[-50vh] right-[-30vw] text-[100vw] w-[1em] h-[1em]" />
+          <BGAccent
+            isDarkMode={isDarkMode}
+            className="z-1 bottom-[-50vh] right-[-30vw] text-[600px] md:text-[150vw] lg:text-[100vw] w-[1em] h-[1em]"
+          />
         </div>
       </section>
       <section id="case-studies" className="work-section min-h-screen flex justify-center items-center flex-col">

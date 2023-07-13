@@ -60,7 +60,10 @@ const Footer: FC<FooterProps> = (props) => {
         className="contact-section flex justify-center items-center flex-col relative overflow-hidden"
       >
         <BigTextAccent text="Contact" />
-        <BGAccent className="z-1 bottom-[-70vh] left-[-40vw] text-[100vw] w-[1em] h-[1em]" />
+        <BGAccent
+          isDarkMode={isDarkMode}
+          className="z-1 bottom-[-70vh] left-[-40vw] text-[600px] md:text-[150vw] lg:text-[100vw] w-[1em] h-[1em]"
+        />
         <div className="container">
           <div className="row justify-center py-20 min-h-[50vh] items-center">
             <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-2 md:order-1">
