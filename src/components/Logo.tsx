@@ -20,22 +20,22 @@ const Logo: FC<LogoProps> = (props) => {
     dispatch(toggleIsMobileOpen(false));
   };
 
-  const src = isDarkMode ? '/logo-dark-bg.png' : '/logo-light-bg.png';
-  const srcMobile = isDarkMode ? '/logo-dark-bg-small.png' : '/logo-light-bg-small.png';
+  const src = isDarkMode ? '/logo_black_solo-transparent.png' : '/logo_white_solo.png';
+  const srcMobile = isDarkMode ? '/logo_black_solo-transparent.png' : '/logo_white_solo.png';
 
   return (
     <Link href="/" className={twMerge(`logo w-[${logoWidth}px] block`, className)} onClick={toggleMenu}>
       <Image
         className="hidden md:block"
         src={src}
-        alt="joseadrianbuctuanon.dev"
+        alt="ranierconcepcion.dev"
         width={logoWidth}
         height={logoWidth / 3}
       />
       <Image
         className="block md:hidden"
         src={srcMobile}
-        alt="joseadrianbuctuanon.dev"
+        alt="ranierconcepcion.dev"
         width={logoWidthMobile}
         height={logoWidthMobile}
       />

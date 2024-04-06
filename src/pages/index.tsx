@@ -16,6 +16,7 @@ import { RootState } from '@/redux/reducers';
 import { useSelector } from 'react-redux';
 import Lottie from 'react-lottie';
 import animationData from '@/lotties/lottie_anim.json';
+import { highlightCaseStudies } from '@/lib/case-studies/data';
 
 interface HomePageProps {
   caseStudies: getAllCaseStudiesReturnType;
@@ -24,7 +25,6 @@ interface HomePageProps {
 const HomePage: FC<HomePageProps> = (props) => {
   const { caseStudies } = props;
   const { isDarkMode } = useSelector((state: RootState) => state.project);
-  console.log('caseStudies == ', caseStudies);
 
   return (
     <Layout>
@@ -33,17 +33,17 @@ const HomePage: FC<HomePageProps> = (props) => {
           <div className="row items-center">
             <div className="w-full md:w-1/2 order-2 md:order-1">
               <h1 className="text-3xl md:text-4xl lg:text-6xl leading-[1.2em]">
-                Expert in developing and designing websites that drive business growth
+                Specialized in crafting and implementing systems that enhance business productivity and growth.
               </h1>
               <p className="mb-10">
-                {`I'm Jose, a fullstack developer with 7 years of experience. I excel in frontend and backend development, especially with ReactJS and Shopify. I love using my skills to help clients build successful websites.`}
+                {`I'm Ranier Chuck, a seasoned full-stack developer with seven years of experience under my belt. My proficiency spans across both frontend and backend development, with a keen focus on ReactJS, NestJS, and ExpressJS. I take pride in my ability to navigate and excel within these technologies, delivering comprehensive solutions that drive success.`}
               </p>
               <ButtonLink href="#contact">{`Let's Talk`}</ButtonLink>
             </div>
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="avatar-container relative">
                 <ScollForMore />
-                <OvalAvatar src="/headshot.jpg" alt="Jose Adrian Buctuanon" />
+                <OvalAvatar src="/formal.jpg" alt="Ranier Chuck Concepcion" />
               </div>
             </div>
           </div>
@@ -99,16 +99,16 @@ const HomePage: FC<HomePageProps> = (props) => {
           </div>
           <div className="row justify-center py-20 min-h-screen items-center">
             <div className="w-full md:w-2/3 ">
-              <OvalAvatar src="/about-me.jpg" alt="Jose Adrian Buctuanon" />
+              <OvalAvatar src="/formal.jpg" alt="Ranier Chuck Concepcion" />
             </div>
             <div className="w-full md:w-1/3 ">
               <h2 className="text-4xl mb-10">Get to know me</h2>
               <p className="mb-10">
-                {`I am a front-end developer based in the Philippines with expertise in Shopify and React. In my role, I use a combination of strategic thinking and creative problem-solving to create standout projects for a range of clients, including both large organizations and start-ups.`}
+                {`I'm a full-stack developer based in the Philippines, specializing in ReactJS, NodeJS, NestJS, and ExpressJS. In my role, I blend strategic insight with inventive problem-solving to craft outstanding projects for a diverse clientele, ranging from startups to large enterprises.`}
               </p>
-              <p>
+              {/* <p>
                 {`In addition to my full-time work as a developer, I also run my own part-time business focused on creating commercial solutions for medium to large businesses. Through this venture, I have had the opportunity to lead and participate in a variety of projects, from e-commerce websites to business dashboards. My diverse experience has allowed me to develop a wide range of skills and I am always looking for new challenges to tackle.`}
-              </p>
+              </p> */}
             </div>
           </div>
           <BGAccent
@@ -118,23 +118,28 @@ const HomePage: FC<HomePageProps> = (props) => {
         </div>
       </section>
       <section id="case-studies" className="work-section min-h-screen flex justify-center items-center flex-col">
-        <BigTextAccent text="Case Studies" direction="right" />
+        <BigTextAccent text="Projects" direction="right" />
         <div className="container">
           <div className="row justify-center">
-            <h3 className="text-4xl mb-10">Selected Case Studies</h3>
+            <h3 className="text-4xl mb-10">Selected Projects</h3>
           </div>
           <div className="row justify-center py-20 items-start">
-            {caseStudies.items.map((cs, k) => (
+            {/* {caseStudies.items.map((cs, k) => (
+              <div className="w-full md:w-1/3 " key={`${k}-${cs.slug}`}>
+                <CaseStudyCard {...cs} />
+              </div>
+            ))} */}
+            {highlightCaseStudies.map((cs, k) => (
               <div className="w-full md:w-1/3 " key={`${k}-${cs.slug}`}>
                 <CaseStudyCard {...cs} />
               </div>
             ))}
             <div className="w-full flex justify-center items-center my-10">
-              <ButtonLink href="/case-studies">More Case Studies</ButtonLink>
+              <ButtonLink href="/projects">More Projects</ButtonLink>
             </div>
           </div>
 
-          <div className="row min-h-[20vh] justify-start flex-col items-center">
+          {/* <div className="row min-h-[20vh] justify-start flex-col items-center">
             <div className="w-full flex flex-col items-center">
               <h3 className="text-4xl mb-10">Clients and Work Experiences</h3>
               <ul className="flex space-x-2 flex-wrap justify-center">
@@ -148,21 +153,21 @@ const HomePage: FC<HomePageProps> = (props) => {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </Layout>
   );
 };
 
-export async function getStaticProps() {
-  const data = await getAllCaseStudies({ limit: 3 });
+// export async function getStaticProps() {
+//   const data = await getAllCaseStudies({ limit: 3 });
 
-  return {
-    props: {
-      caseStudies: data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       caseStudies: data,
+//     },
+//   };
+// }
 
 export default HomePage;

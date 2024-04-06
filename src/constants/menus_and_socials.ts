@@ -15,8 +15,8 @@ export const MENU: PageLinksModel[] = [
     href: '/about',
   },
   {
-    name: 'Case Studies',
-    href: '/case-studies',
+    name: 'Projects',
+    href: '/projects',
   },
   {
     name: 'Contact',
@@ -27,27 +27,12 @@ export const MENU: PageLinksModel[] = [
 export const SOCIALS: PageLinksModel[] = [
   {
     name: 'Github',
-    href: 'https://github.com/jose-codegourmet',
-    isExternal: true,
-  },
-  {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/joseadrianbuctuanon.dev/',
-    isExternal: true,
-  },
-  {
-    name: 'Behance',
-    href: 'https://www.behance.net/THEGOODSHIT',
-    isExternal: true,
-  },
-  {
-    name: 'Dribbble',
-    href: 'https://dribbble.com/THEGOODSHIT',
+    href: 'https://github.com/ranier-codegourmet',
     isExternal: true,
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/jose-adrian-buctuanon/',
+    href: 'https://www.linkedin.com/in/ranier-chuck-concepcion-1a0310100/',
     isExternal: true,
   },
 ];

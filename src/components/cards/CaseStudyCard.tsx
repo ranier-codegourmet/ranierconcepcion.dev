@@ -3,33 +3,34 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 import ButtonLink from '../ButtonLink';
-import { TCaseStudyResultFields } from '@/lib/case-studies/types';
+import { TCaseStudy, TCaseStudyResultFields } from '@/lib/case-studies/types';
 import Image from 'next/image';
 import RichText from '../RichText';
 
-interface CaseStudyCardProps extends TCaseStudyResultFields {
+interface CaseStudyCardProps extends TCaseStudy {
   className?: string;
 }
 
 const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
-  const { className, slug, title, excerpt, banner, thumbnail, techStack, roles, dateCreated, client, websiteLink } =
-    props;
+  // const { className, slug, title, excerpt, banner, thumbnail, techStack, roles, dateCreated, client, websiteLink } =
+  //   props;
+  const { shortDescription, slug, techStack, thumbnail, title, className } = props;
   const componentClass = `
     card
     w-full
     p-2
   `;
 
-  const thumbObj = thumbnail || banner;
-  const thumbAlt = thumbObj.title || `A case study of  "${title}"`;
+  // const thumbObj = thumbnail || banner;
+  const thumbAlt = `A case study of  "${title}"`;
 
-  const csUrl = `/case-studies/${slug}`;
+  const csUrl = `/projects/${slug}`;
 
   return (
     <div className={twMerge(componentClass, className)}>
       <Link href={csUrl} className="card__image__anchor">
         <div className="card__image relative w-full h-[400px]">
-          <Image fill src={thumbObj.url} alt={thumbAlt} className="object-cover" />
+          <Image fill src={thumbnail} alt={thumbAlt} className="object-cover" />
         </div>
       </Link>
       <div className="card__info flex flex-col items-start justify-start pt-4 space-y-4">
@@ -38,7 +39,7 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
             <h4 className="card__info__title text-2xl">{title}</h4>
           </Link>
         )}
-        {excerpt && (
+        {/* {excerpt && (
           <div className="card__info__excerpt ">
             <RichText
               content={excerpt.json}
@@ -47,7 +48,8 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
               }}
             />
           </div>
-        )}
+        )} */}
+        {shortDescription && <div className="card__info__excerpt ">{shortDescription}</div>}
         {techStack?.length > 0 && (
           <ul className="card__info__techstack flex flex-wrap items-center justify-start">
             {techStack.map((tech, k) => (
