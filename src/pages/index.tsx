@@ -43,7 +43,7 @@ const HomePage: FC<HomePageProps> = (props) => {
             <div className="w-full md:w-1/2 order-1 md:order-2">
               <div className="avatar-container relative">
                 <ScollForMore />
-                <OvalAvatar src="/formal.jpg" alt="Ranier Chuck Concepcion" />
+                <OvalAvatar src="/formal-pose.jpg" alt="Ranier Chuck Concepcion" />
               </div>
             </div>
           </div>
