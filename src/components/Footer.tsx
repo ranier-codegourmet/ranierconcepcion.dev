@@ -86,7 +86,7 @@ const Footer: FC<FooterProps> = (props) => {
               </ul>
             </div>
             <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-1 md:order-2">
-              <OvalAvatar src="/formal.jpg" alt="Ranier Chuck Concepcion" />
+              <OvalAvatar src="/formal-pose.jpg" alt="Ranier Chuck Concepcion" />
             </div>
           </div>
         </div>
