@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import ButtonLink from '../ButtonLink';
 import CaseStudyCard from '../cards/CaseStudyCard';
-import { getAllCaseStudiesReturnType } from '@/lib/case-studies/fns';
+import { TCaseStudy } from '@/lib/case-studies/types';
 
 interface CaseStudySectionProps {
-  caseStudies: getAllCaseStudiesReturnType;
+  caseStudies: TCaseStudy[];
 }
 
 const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
@@ -16,7 +16,7 @@ const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
         <h3 className="text-4xl mb-10">Selected Case Studies</h3>
       </div>
       <div className="row justify-center py-20 items-start">
-        {caseStudies.items.map((cs, k) => (
+        {caseStudies.map((cs, k) => (
           <div className="w-full md:w-1/3 " key={`${k}-${cs.slug}`}>
             <CaseStudyCard {...cs} />
           </div>
