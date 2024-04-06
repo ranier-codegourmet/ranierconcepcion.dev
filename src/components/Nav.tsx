@@ -17,7 +17,7 @@ interface NavProps extends Pick<LogoProps, 'logoWidth' | 'logoWidthMobile'> {
 }
 
 const Nav: FC<NavProps> = (props) => {
-  const { className, isDarkMode, logoWidth = 250, logoWidthMobile = 50, isMobileOpen } = props;
+  const { className, isDarkMode, logoWidth = 100, logoWidthMobile = 50, isMobileOpen } = props;
 
   return (
     <div
@@ -32,7 +32,7 @@ const Nav: FC<NavProps> = (props) => {
           <Logo isDarkMode={isDarkMode} logoWidth={logoWidth} logoWidthMobile={logoWidthMobile} />
           <NavMenu menu={MENU} />
           <div className="hire-me hidden md:block">
-            <ButtonLink href="mailto:jose@codegourmet.io">Hire Me !</ButtonLink>
+            <ButtonLink href="mailto:ranier@codegourmet.io">Hire Me !</ButtonLink>
           </div>
           <TriggerDarkMode isDarkMode={isDarkMode} />
         </div>

@@ -1,4 +1,5 @@
 import { TContentfulImageAsset, TContentfulJSON } from '@/types/contentful';
+import { ReactNode } from 'react';
 
 export interface TCaseStudyPageInfo {
   slug: string;
@@ -29,4 +30,20 @@ export interface TCaseStudyPageFields extends TCaseStudyResultFields {
   samplesOrImagesCollection: {
     items: TContentfulImageAsset[];
   };
+}
+
+export interface TCaseStudy {
+  techStack: string[];
+  title: string;
+  thumbnail: string;
+  shortDescription: ReactNode;
+  slug: string;
+}
+
+export interface TCaseStudyPage extends TCaseStudy {
+  problem: ReactNode;
+  solution: ReactNode;
+  websiteLink: string;
+  roles: string[];
+  banner: string;
 }

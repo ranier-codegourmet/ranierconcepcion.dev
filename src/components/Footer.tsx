@@ -70,7 +70,7 @@ const Footer: FC<FooterProps> = (props) => {
               <div className="flex flex-col space-y-4 items-start justify-start max-w-[500px]">
                 <h3 className="text-4xl">{`Keen to chat about a project of your own?`}</h3>
                 <p>{`Need help with your software needs? Let's connect and chat like old friends! Reach out to me today for personalized solutions and friendly consultation.`}</p>
-                <ButtonLink href="mailto:jose@codegourmet.io">{`Let's talk`}</ButtonLink>
+                <ButtonLink href="mailto:ranier@codegourmet.io">{`Let's talk`}</ButtonLink>
               </div>
               <ul className="flex space-x-2 flex-wrap">
                 {[...SOCIALS].map((s, k) => (
@@ -86,7 +86,7 @@ const Footer: FC<FooterProps> = (props) => {
               </ul>
             </div>
             <div className="w-full md:w-1/2 flex flex-col space-y-4 items-start justify-start order-1 md:order-2">
-              <OvalAvatar src="/talk-exposure-edited.jpg" alt="Jose Adrian Buctuanon" />
+              <OvalAvatar src="/formal.jpg" alt="Ranier Chuck Concepcion" />
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ const Footer: FC<FooterProps> = (props) => {
             </div>
           </div>
           <div className="row justify-center items-center text-center mt-10 py-2 opacity-40 border-t-[1px] border-solid dark:border-white border-neutral-800">
-            <p>© 2023 Jose Adrian Buctuanon. All rights reserved.</p>
+            <p>© 2024 Ranier Chuck Concepcion. All rights reserved.</p>
           </div>
         </div>
       </footer>
