@@ -99,7 +99,7 @@ const HomePage: FC<HomePageProps> = (props) => {
           </div>
           <div className="row justify-center py-20 min-h-screen items-center">
             <div className="w-full md:w-2/3 ">
-              <OvalAvatar src="/formal.jpg" alt="Ranier Chuck Concepcion" />
+              <OvalAvatar src="/formal-pose.jpg" alt="Ranier Chuck Concepcion" />
             </div>
             <div className="w-full md:w-1/3 ">
               <h2 className="text-4xl mb-10">Get to know me</h2>
